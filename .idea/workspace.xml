@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="682b8c45-b1b2-4437-9f0c-e84cc668237a" name="Changes" comment="exchange">
-      <change afterPath="$PROJECT_DIR$/4 term/Pr_1.py" afterDir="false" />
+    <list default="true" id="682b8c45-b1b2-4437-9f0c-e84cc668237a" name="Changes" comment="Deleted trash">
+      <change afterPath="$PROJECT_DIR$/4 term/Graphic/lab_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +45,10 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.Pr_1.executor": "Run",
     "Python.hw.executor": "Run",
+    "Python.lab_2.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
   <component name="RunManager">
@@ -106,7 +108,31 @@
       <option name="project" value="LOCAL" />
       <updated>1739104732644</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="exchange">
+      <option name="closed" value="true" />
+      <created>1739104921395</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739104921395</updated>
+    </task>
+    <task id="LOCAL-00004" summary="exchange">
+      <option name="closed" value="true" />
+      <created>1739104966221</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739104966221</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Deleted trash">
+      <option name="closed" value="true" />
+      <created>1739105309335</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739105309335</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -114,6 +140,7 @@
     <MESSAGE value="Added first file" />
     <MESSAGE value="&quot;lflf&quot;" />
     <MESSAGE value="exchange" />
-    <option name="LAST_COMMIT_MESSAGE" value="exchange" />
+    <MESSAGE value="Deleted trash" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted trash" />
   </component>
 </project>
