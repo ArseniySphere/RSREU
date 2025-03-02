@@ -1,12 +1,14 @@
 import sys
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget, QFileDialog, QMenu, \
-    QWidgetAction
-from PyQt6.QtGui import QPixmap, QTransform
-from PyQt6.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QFileDialog, QMenu, QWidgetAction
+from PyQt5 import QtGui
+
+from PyQt5.QtCore import Qt
+
 
 
 class ImageViewer(QMainWindow):
+
     def __init__(self):
         super().__init__()
 
@@ -15,6 +17,7 @@ class ImageViewer(QMainWindow):
         # Создаем виджет для отображения изображения
         self.image_label = QLabel(self)
         self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.ang = 90
 
         menubar = self.menuBar()
         filemenu = QMenu("&Файл", self)
@@ -29,7 +32,7 @@ class ImageViewer(QMainWindow):
 
         self.rot_90 = QWidgetAction(self)
         self.rot_90.setText("&90\u00B0")
-        self.rot_90.triggered.connect(self.rotate)
+        self.rot_90.triggered.connect(self.rotate_90)
 
         self.rot_45 = QWidgetAction(self)
         self.rot_45.setText("&45\u00B0")
@@ -65,13 +68,11 @@ class ImageViewer(QMainWindow):
 
 
     def load_image(self):
-        file_name = QFileDialog.getOpenFileName(self, "Выберите BMP файл", r"C:\images\"", "Images (*.bmp)")
+        file_name = QFileDialog.getOpenFileName(self, "Выберите BMP файл", r"C:\users\"", "Images (*.bmp)")
 
         if file_name:
             try:
-                self.image = QPixmap(file_name[0])
-                self.image.set
-
+                self.image = QtGui.QPixmap(file_name[0])
                 if self.image.isNull():  # Проверяем, было ли загружено изображение
                     raise ValueError("Ошибка: не удалось загрузить изображение.")
                 else:
@@ -81,14 +82,22 @@ class ImageViewer(QMainWindow):
                 self.image_label.setText(f"Ошибка: {str(e)}")
         else:
             self.image_label.setText("Нет выбранного файла.")
-    # def rotate_90(self):
-    #     t = QTransform().rotate(-90)
-    #     self.
+
 
     def set_scale(self, new_scale):
         self.scale = new_scale
         self.update_image()
 
+    def rotate_90(self):
+        if self.image:
+            t = QtGui.QTransform().rotate(float(90))
+            self.image = self.image.transformed(t, Qt.SmoothTransformation)
+            self.update_image()
+        # transform = QTransform().rotate(90)
+        # print(1)
+        # if self.image:
+        #     self.image = pixmap.transfromed(transform, Qt.TransformationMode)
+        # self.update_image()
     def update_image(self):
         if self.image:
             scaled_image = self.image.scaled(int(self.standart_size * self.scale), int(self.standart_size * self.scale),
