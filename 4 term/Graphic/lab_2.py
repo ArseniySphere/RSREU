@@ -1,23 +1,20 @@
 import sys
-
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QFileDialog, QMenu, QWidgetAction
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QFileDialog, QMenu, QWidgetAction, QScrollArea
 from PyQt5 import QtGui
-
 from PyQt5.QtCore import Qt
 
 
 
-class ImageViewer(QMainWindow):
+class ImageRotator(QMainWindow):
 
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Image Viewer")
+        self.setWindowTitle("Image Rotator")
 
-        # Создаем виджет для отображения изображения
         self.image_label = QLabel(self)
         self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.ang = 90
+        self.flag = False
 
         menubar = self.menuBar()
         filemenu = QMenu("&Файл", self)
@@ -36,12 +33,15 @@ class ImageViewer(QMainWindow):
 
         self.rot_45 = QWidgetAction(self)
         self.rot_45.setText("&45\u00B0")
+        self.rot_45.triggered.connect(self.rotate_45)
 
         self.rot_180 = QWidgetAction(self)
         self.rot_180.setText("&180\u00B0")
+        self.rot_180.triggered.connect(self.rotate_180)
 
         self.rot_200 = QWidgetAction(self)
         self.rot_200.setText("&200\u00B0")
+        self.rot_200.triggered.connect(self.rotate_200)
 
 
 
@@ -51,70 +51,80 @@ class ImageViewer(QMainWindow):
         rotation.addAction(self.rot_180)
         rotation.addAction(self.rot_200)
 
-        # Главное меню
-
-        # Компоновка
         layout = QVBoxLayout()
 
-        layout.addWidget(self.image_label)
+
+        scroll = QScrollArea(self)
+        layout.addWidget(scroll)
+        scroll.setWidgetResizable(True)
+
+        scroll.setWidget(self.image_label)
+
+
+
 
         container = QWidget()
         container.setLayout(layout)
         self.setCentralWidget(container)
-
-        self.image = None  # Для хранения загруженного изображения
-        self.scale = 1.0  # Начальный масштаб
-        self.standart_size = 400
+        self.image = None
+        self.image_size = 400
 
 
     def load_image(self):
-        file_name = QFileDialog.getOpenFileName(self, "Выберите BMP файл", r"C:\users\"", "Images (*.bmp)")
+        file = QFileDialog.getOpenFileName(self, "Выберите BMP файл", r"C:\users\"", "Images (*.bmp)")
 
-        if file_name:
+        if file:
             try:
-                self.image = QtGui.QPixmap(file_name[0])
-                if self.image.isNull():  # Проверяем, было ли загружено изображение
-                    raise ValueError("Ошибка: не удалось загрузить изображение.")
+                self.image = QtGui.QPixmap(file[0])
+                if self.image.isNull():
+                    raise ValueError("Не удалось загрузить изображение.")
                 else:
-                    self.scale = 1.0
-                    self.update_image()
+                    self.image_label.setPixmap(self.image)
+                    self.showMaximized()
             except Exception as e:
                 self.image_label.setText(f"Ошибка: {str(e)}")
         else:
             self.image_label.setText("Нет выбранного файла.")
 
 
-    def set_scale(self, new_scale):
-        self.scale = new_scale
-        self.update_image()
 
     def rotate_90(self):
         if self.image:
             t = QtGui.QTransform().rotate(float(90))
             self.image = self.image.transformed(t, Qt.SmoothTransformation)
             self.update_image()
-        # transform = QTransform().rotate(90)
-        # print(1)
-        # if self.image:
-        #     self.image = pixmap.transfromed(transform, Qt.TransformationMode)
-        # self.update_image()
-    def update_image(self):
+            if self.flag is False:
+                self.showMaximized()
+                self.flag = True
+    def rotate_45(self):
         if self.image:
-            scaled_image = self.image.scaled(int(self.standart_size * self.scale), int(self.standart_size * self.scale),
-                                             Qt.AspectRatioMode.KeepAspectRatio)
-            self.image_label.setPixmap(scaled_image)
-            self.resize(scaled_image.size())
+            t = QtGui.QTransform().rotate(float(45))
+            self.image = self.image.transformed(t, Qt.SmoothTransformation)
+            self.update_image()
+    def rotate_180(self):
+        if self.image:
+            t = QtGui.QTransform().rotate(float(180))
+            self.image = self.image.transformed(t, Qt.SmoothTransformation)
+            self.update_image()
+    def rotate_200(self):
+        if self.image:
+            t = QtGui.QTransform().rotate(float(200))
+            self.image = self.image.transformed(t, Qt.SmoothTransformation)
+            self.update_image()
+
+    def update_image(self):
+        self.image_label.setPixmap(self.image)
+
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    # Обработка ошибок при запуске
     try:
-        viewer = ImageViewer()
+        viewer = ImageRotator()
         viewer.resize(800, 600)
         viewer.show()
         sys.exit(app.exec())
-    except Exception as e:
-        print(f"Произошла ошибка: {str(e)}")
+    except Exception as error:
+        print(f"Произошла ошибка: {str(error)}")
         sys.exit(1)

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="682b8c45-b1b2-4437-9f0c-e84cc668237a" name="Changes" comment="replace">
+    <list default="true" id="682b8c45-b1b2-4437-9f0c-e84cc668237a" name="Changes" comment="lab_2 almost there">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/4 term/Graphic/lab_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/4 term/Graphic/lab_2.py" afterDir="false" />
     </list>
@@ -40,19 +40,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.Pr_1.executor": "Run",
-    "Python.Unname.executor": "Run",
-    "Python.Unnamed.executor": "Run",
-    "Python.hw.executor": "Run",
-    "Python.lab_2.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.Pr_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Unname.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hw.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab_2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Unname" type="PythonConfigurationType" factoryName="Python">
       <module name="RSREU" />
@@ -139,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740664080311</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="lab_2 almost there">
+      <option name="closed" value="true" />
+      <created>1740943979789</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740943979789</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -149,6 +157,7 @@
     <MESSAGE value="exchange" />
     <MESSAGE value="Deleted trash" />
     <MESSAGE value="replace" />
-    <option name="LAST_COMMIT_MESSAGE" value="replace" />
+    <MESSAGE value="lab_2 almost there" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab_2 almost there" />
   </component>
 </project>
