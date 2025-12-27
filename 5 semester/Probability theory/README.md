@@ -8,4 +8,4 @@
 
 * Задача 3
 
-* Задача 4
+* [Задача 4](https://github.com/ArseniySphere/RSREU/blob/main/5%20semester/Probability%20theory/Task%204/Task_4.ipynb) - [условие](https://github.com/ArseniySphere/RSREU/tree/main/5%20semester/Probability%20theory/Task%204)
